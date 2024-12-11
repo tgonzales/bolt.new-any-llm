@@ -47,6 +47,7 @@ ENV WRANGLER_SEND_METRICS=false \
 RUN mkdir -p /root/.config/.wrangler && \
     echo '{"enabled":false}' > /root/.config/.wrangler/metrics.json
 
+RUN npm run install
 RUN npm run build
 
 CMD [ "pnpm", "run", "start"]
