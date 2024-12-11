@@ -41,6 +41,7 @@ const PROVIDER_LIST: ProviderInfo[] = [
   {
     name: 'Ollama',
     staticModels: [],
+
     //getDynamicModels: getOllamaModels,
     getApiKeyLink: 'https://ollama.com/download',
     labelForGetApiKey: 'Download Ollama',
