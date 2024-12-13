@@ -31,24 +31,23 @@ ARG VITE_LOG_LEVEL=debug
 ARG DEFAULT_NUM_CTX
 
 ENV WRANGLER_SEND_METRICS=false \
-    GROQ_API_KEY=${GROQ_API_KEY} \
-    HuggingFace_KEY=${HuggingFace_API_KEY} \
-    OPENAI_API_KEY=${OPENAI_API_KEY} \
-    ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY} \
-    OPEN_ROUTER_API_KEY=${OPEN_ROUTER_API_KEY} \
-    GOOGLE_GENERATIVE_AI_API_KEY=${GOOGLE_GENERATIVE_AI_API_KEY} \
-    OLLAMA_API_BASE_URL=${OLLAMA_API_BASE_URL} \
-    TOGETHER_API_KEY=${TOGETHER_API_KEY} \
-    TOGETHER_API_BASE_URL=${TOGETHER_API_BASE_URL} \
-    VITE_LOG_LEVEL=${VITE_LOG_LEVEL} \
-    DEFAULT_NUM_CTX=${DEFAULT_NUM_CTX}
+  GROQ_API_KEY=${GROQ_API_KEY} \
+  HuggingFace_KEY=${HuggingFace_API_KEY} \
+  OPENAI_API_KEY=${OPENAI_API_KEY} \
+  ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY} \
+  OPEN_ROUTER_API_KEY=${OPEN_ROUTER_API_KEY} \
+  GOOGLE_GENERATIVE_AI_API_KEY=${GOOGLE_GENERATIVE_AI_API_KEY} \
+  OLLAMA_API_BASE_URL=${OLLAMA_API_BASE_URL} \
+  TOGETHER_API_KEY=${TOGETHER_API_KEY} \
+  TOGETHER_API_BASE_URL=${TOGETHER_API_BASE_URL} \
+  VITE_LOG_LEVEL=${VITE_LOG_LEVEL} \
+  DEFAULT_NUM_CTX=${DEFAULT_NUM_CTX}
 
 # Pre-configure wrangler to disable metrics
 RUN mkdir -p /root/.config/.wrangler && \
-    echo '{"enabled":false}' > /root/.config/.wrangler/metrics.json
+  echo '{"enabled":false}' > /root/.config/.wrangler/metrics.json
 
-RUN npm run install
 RUN npm run build
 
-CMD [ "pnpm", "run", "start"]
+CMD [ "pnpm", "run", "dockerstart"]
 
